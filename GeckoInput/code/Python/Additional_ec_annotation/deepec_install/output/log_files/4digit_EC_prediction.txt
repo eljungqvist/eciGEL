@@ -1,0 +1,157 @@
+Query ID	Predicted EC number	DNN activity
+NP_414542.1	EC number not predicted	N/A
+NP_414543.1	EC:1.1.1.3	0.9999999
+NP_414543.1	EC:2.7.2.4	0.9999896
+NP_414544.1	EC:2.7.1.39	1.0
+NP_414545.1	EC:4.2.3.1	0.99999464
+NP_414546.1	EC:1.9.3.1	0.999008
+NP_414547.1	EC number not predicted	N/A
+NP_414548.1	EC number not predicted	N/A
+NP_414549.1	EC:2.2.1.2	1.0
+NP_414550.1	EC:2.7.7.75	0.999624
+NP_414551.1	EC number not predicted	N/A
+NP_414552.1	EC number not predicted	N/A
+NP_414554.1	EC number not predicted	N/A
+NP_414555.1	EC number not predicted	N/A
+NP_414556.1	EC:2.3.2.27	0.99898523
+NP_414557.1	EC number not predicted	N/A
+NP_414559.1	EC number not predicted	N/A
+NP_414560.1	EC number not predicted	N/A
+NP_414561.1	EC:1.17.4.1	0.66312826
+NP_414562.1	EC number not predicted	N/A
+NP_414563.1	EC number not predicted	N/A
+NP_414564.1	EC:3.1.26.5	0.99995244
+NP_414565.1	EC number not predicted	N/A
+NP_414566.1	EC:2.7.1.26	0.9999621
+NP_414566.1	EC:2.7.7.2	0.99868745
+NP_414567.1	EC:6.1.1.5	1.0
+NP_414568.1	EC:3.4.23.36	1.0
+NP_414569.1	EC number not predicted	N/A
+NP_414570.1	EC:1.17.7.4	0.9999999
+NP_414571.1	EC number not predicted	N/A
+NP_414572.1	EC:1.17.1.8	1.0
+NP_414573.1	EC:6.3.5.5	1.0
+NP_414574.1_SEPARATED_SEQUENCE_(1_1001)	EC number not predicted	N/A
+NP_414576.4	EC number not predicted	N/A
+NP_414577.2	EC number not predicted	N/A
+NP_414578.2	EC:4.2.1.149	0.9998789
+NP_414579.4	EC number not predicted	N/A
+NP_414580.1	EC:2.8.3.21	0.9945635
+NP_414581.1	EC number not predicted	N/A
+NP_414582.1	EC number not predicted	N/A
+NP_414583.2	EC number not predicted	N/A
+NP_414584.1	EC number not predicted	N/A
+NP_414585.1	EC number not predicted	N/A
+NP_414586.1	EC number not predicted	N/A
+NP_414587.1	EC:2.7.1.191	0.84167755
+NP_414588.1	EC:1.6.5.2	0.99999964
+NP_414589.1	EC number not predicted	N/A
+NP_414590.1	EC:1.5.1.3	1.0
+NP_414591.1	EC:3.6.1.41	0.9999994
+NP_414592.1	EC number not predicted	N/A
+NP_414593.1	EC:2.1.1.182	1.0
+NP_414594.1	EC:1.1.1.262	1.0
+NP_414595.1	EC:5.2.1.8	1.0
+NP_414596.1	EC number not predicted	N/A
+NP_414597.1	EC number not predicted	N/A
+NP_414600.1	EC:5.4.99.28	0.99993527
+NP_414601.1	EC:3.6.4.13	0.9621944
+NP_414602.1	EC:2.7.7.7	0.99999297
+NP_414603.1	EC:5.1.3.4	0.99821943
+NP_414604.1	EC:5.3.1.4	0.9999769
+NP_414605.1	EC:2.7.1.16	0.9999995
+NP_414606.1	EC number not predicted	N/A
+NP_414607.1	EC number not predicted	N/A
+NP_414608.1	EC number not predicted	N/A
+NP_414609.1	EC number not predicted	N/A
+NP_414610.1	EC:3.2.1.89	0.64932185
+NP_414611.1	EC number not predicted	N/A
+NP_414613.1	EC:4.2.1.33	1.0
+NP_414614.1	EC:4.2.1.33	1.0
+NP_414615.4	EC:1.1.1.85	1.0
+NP_414616.1	EC:2.3.3.13	0.99999654
+NP_414617.1	EC number not predicted	N/A
+NP_414618.4	EC number not predicted	N/A
+NP_414620.1	EC number not predicted	N/A
+NP_414622.1	EC number not predicted	N/A
+NP_414623.1	EC number not predicted	N/A
+NP_414624.1	EC:2.1.1.199	0.9999999
+NP_414625.1	EC number not predicted	N/A
+NP_414626.1	EC number not predicted	N/A
+NP_414627.1	EC:6.3.2.13	1.0
+NP_414628.1	EC:6.3.2.10	0.9987477
+NP_414629.1	EC:2.7.8.13	1.0
+NP_414630.1	EC:6.3.2.9	1.0
+NP_414631.1	EC:2.4.1.129	0.99998415
+NP_414632.1	EC:2.4.1.227	1.0
+NP_414633.1	EC:6.3.2.8	1.0
+NP_414634.1	EC:6.3.2.4	1.0
+NP_414635.1	EC number not predicted	N/A
+NP_414636.1	EC number not predicted	N/A
+NP_414637.1	EC number not predicted	N/A
+NP_414638.1	EC:3.5.1.108	1.0
+NP_414639.2	EC:1.6.99.3	0.6751698
+NP_414640.1	EC number not predicted	N/A
+NP_414641.1	EC:3.6.1.17	0.9965668
+NP_414641.1	EC:3.6.1.55	0.99970907
+NP_414643.1	EC:2.7.7.6	0.9997073
+NP_414644.1	EC number not predicted	N/A
+NP_414645.1	EC:2.7.1.24	1.0
+NP_414646.1	EC:1.7.1.7	0.99997735
+NP_414648.1	EC number not predicted	N/A
+NP_414649.1	EC:2.3.2.27	0.9998363
+NP_414650.1	EC number not predicted	N/A
+NP_414651.1	EC:2.4.2.19	0.9976712
+NP_414652.1	EC:3.5.1.28	0.9987494
+NP_414653.1	EC number not predicted	N/A
+NP_414654.1	EC number not predicted	N/A
+NP_414655.1	EC number not predicted	N/A
+NP_414656.1	EC:1.2.4.1	1.0
+NP_414657.1	EC:2.3.1.12	0.89847255
+NP_414658.1	EC:1.8.1.4	0.99999976
+NP_414659.1	EC number not predicted	N/A
+NP_414660.1	EC:4.2.1.3	0.99996805
+NP_414660.1	EC:4.2.1.99	0.9998933
+NP_414661.2	EC number not predicted	N/A
+NP_414662.1	EC:4.1.1.50	1.0
+NP_414663.1	EC:2.5.1.16	0.99977976
+NP_414664.4	EC number not predicted	N/A
+NP_414665.1	EC number not predicted	N/A
+NP_414666.1	EC:1.1.5.2	0.99998426
+NP_414667.4	EC:2.4.2.8	1.0
+NP_414668.1	EC number not predicted	N/A
+NP_414669.1	EC:3.6.3.17	0.95689005
+NP_414670.1	EC number not predicted	N/A
+NP_414671.1	EC number not predicted	N/A
+NP_414672.1	EC number not predicted	N/A
+NP_414673.1	EC:4.1.1.11	1.0
+NP_414674.1	EC:3.1.21.4	0.98830426
+NP_414675.1	EC:6.3.2.1	0.99991035
+NP_414676.1	EC:2.1.2.11	1.0
+NP_414677.1	EC number not predicted	N/A
+NP_414678.1	EC number not predicted	N/A
+NP_414679.1	EC number not predicted	N/A
+NP_414680.4	EC number not predicted	N/A
+NP_414681.1	EC number not predicted	N/A
+NP_414682.1	EC number not predicted	N/A
+NP_414683.1	EC:2.7.11.1	0.9817139
+NP_414684.1	EC:2.7.6.3	0.9999981
+NP_414685.4	EC:2.7.7.19	0.99999964
+NP_414686.3	EC:6.1.1.17	0.78552425
+NP_414687.1	EC number not predicted	N/A
+NP_414688.1	EC number not predicted	N/A
+NP_414689.4	EC number not predicted	N/A
+NP_414690.4	EC:3.6.4.13	1.0
+NP_414691.1	EC:2.4.1.129	0.9717083
+NP_414692.1	EC number not predicted	N/A
+NP_414693.1	EC:3.6.3.34	0.9991835
+NP_414694.1	EC number not predicted	N/A
+NP_414695.1	EC number not predicted	N/A
+NP_414696.1	EC:5.4.3.8	1.0
+NP_414697.1	EC number not predicted	N/A
+NP_414698.1	EC number not predicted	N/A
+NP_414699.1	EC number not predicted	N/A
+NP_414700.1	EC number not predicted	N/A
+NP_414701.1	EC:3.2.2.9	0.99999964
+NP_414702.1	EC:3.1.5.1	0.9999162
+NP_414703.1	EC:3.4.21.107	1.0
