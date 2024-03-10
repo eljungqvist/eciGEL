@@ -1,7 +1,7 @@
 % Workflow for generating eciGEL from iGEL604
 
 % 1. Load conventional GEM iGEL604
-% load("/Users/emilljungqvist/Modeling/iGEL604.mat")
+% load("Models/iGEL604.mat")
 
 % 2. Manual Curation (code/Preprocessing)
 %       - Update available carbon sources from Vitamin manuscript (expand_carbon_sources.m)
