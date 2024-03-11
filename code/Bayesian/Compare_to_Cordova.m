@@ -1,58 +1,68 @@
-function [cordova_fluxes, Model_fluxes_scaled, Cordova_flux_fraction, Model_flux_fraction] = Compare_to_Cordova(model, solution)
+function [c13flux, model_flux, C13_flux_fraction, Model_flux_fraction] = Compare_to_Cordova(model, solution)
+% Compares fluxes of central carbon metabolism between eciGEL prediction and
+% 13C-MFA analysis performed by Cordova et al. 2015.
 
-%Relevant_Rxns = [];
-Model_fluxes_scaled = [];
-Flux_Sum = [];
-Model_flux_fraction = [];
-cordova_fluxes = readtable('../../../Databases/Cordova_fluxes.xlsx');  % Imports Cordova's glucose 13C MFA fluxes
-cordova_fluxes = cordova_fluxes.Var1';
 
-Comparisonfluxes=["R00771","R00756","R01068","R01015","R01061","R01512",...
-                  "R01518","R00658","R00200","R00209","R00344","R00351",...
-                  "R01325","R00267","R08549","R00405","R02164","R01082",...
-                  "R00342","R02035","R01528","R01529",...
-                  "R01056","R01641","R08575","R01067","R01858","R01138",...
-                  "R02734"];
+c13fluxes = readtable('../../../Databases/Cordova_fluxes_rxns.xlsx', 'ReadVariableNames', true);  % Imports Cordova's glucose 13C MFA fluxes
 
-for i=1:length(Comparisonfluxes)
-    All_rxns_with_idx = model.rxns(find(contains(model.rxns, Comparisonfluxes(i))));
-    
-    if length(All_rxns_with_idx)>1
 
-        for j=1:length(All_rxns_with_idx)
+% 13C-MFA measures total flux between two metabolites, i.e. forward flux
+% minus reverse flux. Some glycolysis and TCA reactions KEGG defines in the 
+% reverse direction, so that forward in MFA is reverse in the model.
+for i=1:length(c13fluxes.RxnID)
+    rxn = extractBefore(c13fluxes.RxnID(i), 7);
+    All_rxns_with_idx = model.rxns(find(contains(model.rxns, rxn)));
 
-            if contains(All_rxns_with_idx(j), 'REV')
-                solution.x(find(ismember(model.rxns, All_rxns_with_idx(j))))=-1*solution.x(find(ismember(model.rxns, All_rxns_with_idx(j))));
-            end
+    if length(All_rxns_with_idx)>1 
+        if contains(c13fluxes.RxnID(i), 'REV') % REV direction is the 'correct' direction 
+          fwdrxns = All_rxns_with_idx(contains(All_rxns_with_idx, 'REV'));
+          revrxns = All_rxns_with_idx(~contains(All_rxns_with_idx, 'REV'));
+          model_flux(i) = sum(solution.x(contains(model.rxns, fwdrxns))) - sum(solution.x(contains(model.rxns, revrxns)));
+        else % fwd direction is correct direction
+          fwdrxns = All_rxns_with_idx(~contains(All_rxns_with_idx, 'REV'));
+          revrxns = All_rxns_with_idx(contains(All_rxns_with_idx, 'REV'));
+          model_flux(i) = sum(solution.x(contains(model.rxns, fwdrxns))) - sum(solution.x(contains(model.rxns, revrxns)));            
         end
+    else
+        model_flux(i) = solution.x(contains(model.rxns, c13fluxes.RxnID(i)));
     end
-
-    Flux_Sum = [Flux_Sum; abs(sum(solution.x(find(contains(model.rxns, All_rxns_with_idx)))))];
-
-    
 end
+model_flux = model_flux';
 
-R00200=find(contains(Comparisonfluxes, "R00200"));
-R01858=find(contains(Comparisonfluxes, "R01858"));
-R01138=find(contains(Comparisonfluxes, "R01138"));
-PTS = solution.x(find(ismember(model.rxns, 'PTS')));
-R00206 = solution.x(find(ismember(model.rxns, 'R00206')));
-Flux_Sum(R00200) = Flux_Sum(R00200) + Flux_Sum(R01858) + Flux_Sum(R01138) + PTS - R00206;
+% We're only measuring the total flux between two metabolites. If there are
+% isozymes we want to compare their total to MFA. Total is calculated in
+% loop above. Here remove isozyme reactions so they are not compared twice.
+rowsToDelete = [];
+for i = 1:height(c13fluxes)
+    % Check if the entry contains 'EXP_2'
+    if contains(c13fluxes.RxnID{i}, 'EXP_2')
+        rowsToDelete = [rowsToDelete; i]; % Mark this row for deletion
+    % Check if the entry contains 'EXP_1' and modify it if true
+    elseif contains(c13fluxes.RxnID{i}, 'EXP_1')
+        c13fluxes.RxnID{i} = c13fluxes.RxnID{i}(1:6); % Keep only the first 6 characters
+    end
+end
+% Delete the marked rows in one operation
+c13fluxes(rowsToDelete, :) = [];
+model_flux(rowsToDelete) = [];
 
+% PEP -> Pyr conversion performed by several reactions, introducing a lot
+% of uncertainty. Remove from comparison. 
+PEPPYR = find(strcmp(c13fluxes.RxnID, 'R00200_REV'));
+c13fluxes(PEPPYR, :) = [];
+model_flux(PEPPYR) = [];
 
-R00405=find(contains(Comparisonfluxes, "R00405"));
-R02734=find(contains(Comparisonfluxes, "R02734"));
-Flux_Sum(R00405) = Flux_Sum(R00405) + Flux_Sum(R02734);
-Flux_Sum(R02734) = [];
-Flux_Sum(R01138) = [];
-Flux_Sum(R01858) = [];
+% Cordova fluxes are normalized to a substrate uptake of 100. Do the same for
+% model fluxes
+PTSflux = solution.x(find(strcmp(model.rxns, 'PTS')));
+model_flux = model_flux.*(100/PTSflux);
 
+c13flux = c13fluxes.Flux;
 % Calculate how close Modeled fluxes are to Cordova measured fluxes. To
 % normalize each flux, calculate the fraction of measured flux that the
 % modeled flux fulfills.
+Model_flux_fraction = model_flux./c13fluxes.Flux;
+C13_flux_fraction = c13fluxes.Flux./c13fluxes.Flux;
 
-Model_flux_fraction = abs(Flux_Sum'./cordova_fluxes);
-Cordova_flux_fraction = cordova_fluxes./cordova_fluxes;
-
-Model_fluxes_scaled = abs(Flux_Sum./solution.x(find(contains(model.rxns, 'EX_Glucose'))))*100;
-Model_fluxes_scaled = Model_fluxes_scaled';
+%Model_fluxes_scaled = abs(Flux_Sum./solution.x(find(contains(model.rxns, 'EX_Glucose'))))*100;
+%Model_fluxes_scaled = Model_fluxes_scaled';
