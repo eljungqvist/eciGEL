@@ -29,9 +29,9 @@ ecModel = changePO(ecModel,4,0,4,4,rxnIdxs);
 
 ecModel = applyKcatConstraints(ecModel);
 
-% Set size of Protein pool with 0.51 g/gDW protein, and 0.43 g/gprot
+% Set size of Protein pool with 0.51 g/gDW protein, and 0.49 g/gprot
 % metabolic enzymes
-ecModel = setProtPoolSize(ecModel, 0.51, 0.43, 0.5); 
+ecModel = setProtPoolSize(ecModel, 0.51, 0.49, 0.5); 
 
 % Reads table with kapps and finds their indexes in model ec-structure
 kapps = readtable('../../../Databases/kapp.tsv', 'FileType','text','Delimiter',{'\t'});
